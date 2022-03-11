@@ -37,8 +37,13 @@ You may also see any lint errors in the console.
 
 ## :rocket: Sobre o desafio
 
-Aplicação que salva e exibe repositorios informados da api API do Guithub. exibe de formar detalhada com as issues do repositorio.
-Application that saves and displays repositories informed by the Guithub API API. displays in detail with the repository issues.
+Aplicação que salva e exibe repositorios informados da api API do Guithub. exibe de formar detalhada com as issues do repositorio. Pode ser realizado teste da aplicação clicando no botão abaixo.
+Application that saves and displays repositories informed of the Guithub API. View in detail with the repository questions. You can test the application by clicking the button below.
+
+<p align="center">
+  <a href="https://mybestrepo.netlify.app/" target="_blank" rel="noopener noreferrer">
+    <img alt="Test here" src="https://img.shields.io/badge/Test%20here-MyBestRepo-%09165F">
+  </a> </p>
 
 
 Tela principal
