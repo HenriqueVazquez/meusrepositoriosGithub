@@ -17,11 +17,12 @@ export default class Main extends Component {
       repositories: [],
       loading: false,
       error: null,
-      msError: '',
+      messageError: '',
     };
   }
 
   // Carregar os dados do localStorage
+  // Load data from localStorage
   componentDidMount() {
     const repositories = localStorage.getItem('repositories');
 
@@ -30,7 +31,8 @@ export default class Main extends Component {
     }
   }
 
-  // Salvar os dados do localStorage
+  // Atualizando os dados no localStorage
+  /// Updating data in localStorage
   componentDidUpdate(_, prevState) {
     const { repositories } = this.state;
 
@@ -39,10 +41,14 @@ export default class Main extends Component {
     }
   }
 
+  // Lidando com a  input
+  // Handling the input
   handleInputChange = (e) => {
     this.setState({ newRepo: e.target.value, error: null });
   };
 
+  // Lidando com o evento de submit do botão
+  // Handling the button's submit event
   handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -58,7 +64,6 @@ export default class Main extends Component {
         (repository) => repository.name === newRepo
       );
 
-      // eslint-disable-next-line no-throw-literal
       if (hasRepo) throw new Error('Repositório duplicado');
 
       const response = await api.get(`/repos/${newRepo}`);
@@ -72,14 +77,14 @@ export default class Main extends Component {
         newRepo: '',
       });
     } catch (error) {
-      this.setState({ error: true, msError: `${error.message}` });
+      this.setState({ error: true, messageError: `${error.message}` });
     } finally {
       this.setState({ loading: false });
     }
   };
 
   render() {
-    const { newRepo, repositories, loading, error, msError } = this.state;
+    const { newRepo, repositories, loading, error, messageError } = this.state;
     return (
       <Container>
         <h1>
@@ -103,7 +108,7 @@ export default class Main extends Component {
             )}
           </SubmitButton>
         </Form>
-        <Perror>{msError}</Perror>
+        <Perror>{messageError}</Perror>
         <List>
           {repositories.map((repository) => (
             <li key={repository.name}>

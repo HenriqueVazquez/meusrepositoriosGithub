@@ -24,6 +24,8 @@ export default class Repository extends Component {
     };
   }
 
+  // Construindo repositories e issues
+  // Building repositories and issues
   async componentDidMount() {
     const { match } = this.props;
     const { filters } = this.state;
@@ -78,7 +80,6 @@ export default class Repository extends Component {
   };
 
   render() {
-    // eslint-disable-next-line no-unused-vars
     const { repository, loading, issues, filters, filterIndex, page } =
       this.state;
 
